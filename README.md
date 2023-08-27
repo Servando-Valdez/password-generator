@@ -14,6 +14,16 @@ venv/Scripts/Activate.ps1
 
 pip install -r .\requirements.txt
 
-## Run project
+### Run project
 
 uvicorn main:app --reload
+
+# Run Frontend
+
+### Install dependencies
+
+npm install
+
+### Run project
+
+npm run dev
