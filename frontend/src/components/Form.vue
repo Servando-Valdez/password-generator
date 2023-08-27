@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {ref, watch} from "vue";
+
     let numberRange = ref(25);
     let rangePassword = ref(25);
 
@@ -20,7 +21,18 @@ import {ref, watch} from "vue";
         }else{
             numberRange.value = 50;
         }
-    })
+    });
+
+    const checkboxes = [symbols, numbers, uppercase, lowercase];
+
+    
+
+    const handleCheckboxChange = (event:any) => {
+        const test = checkboxes.filter((checkbox) =>  checkbox.value === true)
+        if(test.length === 1){
+            event.target.checked = true;
+        }
+    };
 </script>
 
 <template>
@@ -47,19 +59,19 @@ import {ref, watch} from "vue";
             </div>
             <div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-1" v-model="symbols">
+                    <input class="form-check-input" type="checkbox" id="formCheck-1" v-model="symbols" @click="handleCheckboxChange">
                     <label class="form-check-label" for="formCheck-1">Symbols</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-2" v-model="numbers">
+                    <input class="form-check-input" type="checkbox" id="formCheck-2" v-model="numbers" @click="handleCheckboxChange">
                     <label class="form-check-label" for="formCheck-2">Numbers</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-3" v-model="uppercase">
+                    <input class="form-check-input" type="checkbox" id="formCheck-3" v-model="uppercase" @click="handleCheckboxChange">
                     <label class="form-check-label" for="formCheck-3">Uppercase</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-4" v-model="lowercase">
+                    <input class="form-check-input" type="checkbox" id="formCheck-4" v-model="lowercase" @click="handleCheckboxChange">
                     <label class="form-check-label" for="formCheck-4">LowerCase</label>
                 </div>
             </div>
