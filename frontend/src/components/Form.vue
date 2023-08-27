@@ -1,5 +1,26 @@
 <script setup lang="ts">
+import {ref, watch} from "vue";
+    let numberRange = ref(25);
+    let rangePassword = ref(25);
 
+    let symbols = ref(true);
+    let numbers = ref(true);
+    let uppercase = ref(true);
+    let lowercase = ref(true);
+
+    watch(numberRange, (newValue)=>{
+        rangePassword.value = newValue;
+    });
+
+    watch(rangePassword, (newValue)=>{
+        if(newValue < 50){
+            numberRange.value = newValue;
+        }else{
+            numberRange.value = 50;
+        }
+    })
+
+    
 </script>
 
 <template>
@@ -13,24 +34,32 @@
                 <div class="col-2 d-flex justify-content-center align-content-center"><button class="btn btn-primary" type="button" style="border-radius: 40px;border-style: none;background: rgb(44,62,80);">Copy</button></div>
             </div>
             <div class="d-flex justify-content-evenly" style="margin-top: 10px;margin-bottom: 10px;">
-                <div class="col-3"><input class="form-control" type="number" id="number-range" style="border-radius: 15px;"></div>
-                <div class="col-5"><input class="form-range" type="range" id="range-password" style="--bs-primary: #2c3e50;--bs-primary-rgb: 44,62,80;color: rgb(44,62,80);"></div>
+                <div class="col-3">
+                    <input class="form-control" type="number" id="number-range" 
+                        v-model="rangePassword" min="12" max="50"
+                        style="border-radius: 15px;">
+                </div>
+                <div class="col-5">
+                    <input class="form-range" type="range" id="range-password" 
+                        v-model="numberRange" min="12" max="50"
+                        style="--bs-primary: #2c3e50;--bs-primary-rgb: 44,62,80;color: rgb(44,62,80);">
+                </div>
             </div>
             <div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-1">
+                    <input class="form-check-input" type="checkbox" id="formCheck-1" v-model="symbols">
                     <label class="form-check-label" for="formCheck-1">Symbols</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-2">
+                    <input class="form-check-input" type="checkbox" id="formCheck-2" v-model="numbers">
                     <label class="form-check-label" for="formCheck-2">Numbers</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-3">
+                    <input class="form-check-input" type="checkbox" id="formCheck-3" v-model="uppercase">
                     <label class="form-check-label" for="formCheck-3">Uppercase</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-4">
+                    <input class="form-check-input" type="checkbox" id="formCheck-4" v-model="lowercase">
                     <label class="form-check-label" for="formCheck-4">LowerCase</label>
                 </div>
             </div>
