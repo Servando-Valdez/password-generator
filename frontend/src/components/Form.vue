@@ -8,6 +8,8 @@ import {ref, watch} from "vue";
     let uppercase = ref(true);
     let lowercase = ref(true);
 
+    // const checkboxes = [symbols, numbers, uppercase, lowercase]
+
     watch(numberRange, (newValue)=>{
         rangePassword.value = newValue;
     });
@@ -19,8 +21,6 @@ import {ref, watch} from "vue";
             numberRange.value = 50;
         }
     })
-
-    
 </script>
 
 <template>
