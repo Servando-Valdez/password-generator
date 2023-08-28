@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import {ref, watch, onMounted} from "vue";
+    import Swal from "sweetalert2";
     import {ParamsPassword} from "../interfaces/interfaces";
-    // import axios from "axios";
     import {PasswordService} from "../api/passwordAPI"
 
     const passwordService = new PasswordService();
@@ -48,12 +48,17 @@
             lowercase: lowercase.value,
             length: rangePassword.value
         }
+        console.log(params);
         const url: string = "password/"
 
         await passwordService.get(url, params).then((response) => {
             password.value = response.password;
-        }).catch((error) => {
-            console.log(error);
+        }).catch(() => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error creating password',
+                text: 'Something went wrong!',
+            })
         })
     }
 </script>
