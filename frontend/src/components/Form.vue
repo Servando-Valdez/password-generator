@@ -48,7 +48,6 @@
             lowercase: lowercase.value,
             length: rangePassword.value
         }
-        console.log(params);
         const url: string = "password/"
 
         await passwordService.get(url, params).then((response) => {
