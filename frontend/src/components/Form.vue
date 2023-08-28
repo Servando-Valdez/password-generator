@@ -51,7 +51,7 @@
         const url: string = "password/"
 
         await passwordService.get(url, params).then((response) => {
-            password.value = response;
+            password.value = response.password;
         }).catch((error) => {
             console.log(error);
         })
