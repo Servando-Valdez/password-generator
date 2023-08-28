@@ -60,6 +60,25 @@
             })
         })
     }
+
+    const copyToClipboard = () =>{
+        navigator.clipboard.writeText(password.value).then(() => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Password copied to clipboard',
+                text: 'You can paste it anywhere!',
+                timer: 2000,
+                confirmButtonColor: '#2c3e50'
+            })
+        }).catch(() => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error copying password',
+                text: 'Something went wrong!',
+                timer: 2500
+            })
+        });
+    }
 </script>
 
 <template>
@@ -70,10 +89,14 @@
             </div>
             <div class="d-flex justify-content-evenly" style="margin-top: 10px;margin-bottom: 10px;">
                 <div class="col-9">
-                    <input class="form-control" type="text" style="border-radius: 15px;" v-model="password">
+                    <input class="form-control" id="password" type="text" style="border-radius: 15px;" v-model="password">
                 </div>
                 <div class="col-2 d-flex justify-content-center align-content-center">
-                    <button class="btn btn-primary" type="button" style="border-radius: 40px;border-style: none;background: rgb(44,62,80);">Copy</button>
+                    <button
+                        @click="copyToClipboard"
+                        class="btn btn-primary" type="button" style="border-radius: 40px;border-style: none;background: rgb(44,62,80);">
+                        Copy
+                    </button>
                 </div>
             </div>
             <div class="d-flex justify-content-evenly" style="margin-top: 10px;margin-bottom: 10px;">
