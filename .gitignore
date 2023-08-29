@@ -2,6 +2,7 @@
 #Fastapi
 venv
 __pycache__
+.env
 
 
 #frontend
