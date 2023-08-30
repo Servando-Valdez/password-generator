@@ -43,7 +43,7 @@
     const generatePassword = async() =>{
         const params: ParamsPassword = {
             symbols: symbols.value,
-            numbers: numbers.value,
+            digits: numbers.value,
             uppercase: uppercase.value,
             lowercase: lowercase.value,
             length: rangePassword.value

@@ -6,6 +6,6 @@ export interface ParamsPassword{
     length: number;
     uppercase: boolean;
     lowercase: boolean;
-    numbers: boolean;
+    digits: boolean;
     symbols: boolean;
 }
