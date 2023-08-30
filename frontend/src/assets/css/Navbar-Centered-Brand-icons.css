@@ -1,3 +1,12 @@
+
+@media screen and (min-width: 1200px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
 .bs-icon {
   --bs-icon-size: .75rem;
   display: flex;

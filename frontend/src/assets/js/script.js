@@ -1,35 +1,35 @@
 
-// let numberRange = document.getElementById('number-range');
+let numberRange = document.getElementById('number-range');
 
-// let rangeNumber = document.getElementById('range-password');
+let rangeNumber = document.getElementById('range-password');
 
-// rangeNumber.addEventListener('input', function(){
-//     numberRange.value = rangeNumber.value
-// })
+rangeNumber.addEventListener('input', function(){
+    numberRange.value = rangeNumber.value
+})
 
-// numberRange.addEventListener('input', function(event){
-//     const maxAllowedValue = 50;
-//     let inputValue = event.target.value;
+numberRange.addEventListener('input', function(event){
+    const maxAllowedValue = 50;
+    let inputValue = event.target.value;
 
-//     if (inputValue > maxAllowedValue) {
-//         inputValue = maxAllowedValue;
-//     }
+    if (inputValue > maxAllowedValue) {
+        inputValue = maxAllowedValue;
+    }
 
-//     event.target.value = inputValue;
-// })
+    event.target.value = inputValue;
+})
 
-// function addRange(){
-//     rangeNumber.min = 1;
-//     rangeNumber.max = 50;
+function addRange(){
+    rangeNumber.min = 1;
+    rangeNumber.max = 50;
 
-//     numberRange.min = 1;
-//     numberRange.max = 50;
+    numberRange.min = 1;
+    numberRange.max = 50;
 
-//     rangeNumber.value = 12;
-//     numberRange.value = rangeNumber.value;
-// }
+    rangeNumber.value = 12;
+    numberRange.value = rangeNumber.value;
+}
 
-// addRange()
+addRange()
 
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
