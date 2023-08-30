@@ -129,8 +129,9 @@
                     <label class="form-check-label" for="formCheck-4">LowerCase</label>
                 </div>
             </div>
-            <div class="text-center">
-                <button class="btn btn-primary" type="button" 
+            <div class="text-center" id="generate-password" style="margin-bottom: 10px;
+    margin-top: 10px;">
+                <button class="btn btn-primary mb-10" type="button"
                     style="color: rgb(255,255,255);background: rgb(44,62,80);border-radius: 10px;padding: 12px;margin-top: 20px;border-style: none;"
                     @click="generatePassword"
                     >Generate Password</button>
