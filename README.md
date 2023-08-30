@@ -27,3 +27,7 @@ npm install
 ### Run project
 
 npm run dev
+
+# Run both projects
+
+./run-both.sh
